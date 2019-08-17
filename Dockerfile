@@ -20,39 +20,36 @@ RUN apt update && apt install -y \
    python3 \
    python3-dev \
    python3-pip \
-   ruby-dev \
-   && apt clean
+   ruby-dev && \
+   apt clean && \
+   rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install virtualenv flake8 mypy
 
-RUN mkdir /usr/include/lua5.1/include
-RUN cp /usr/include/lua5.1/*.h /usr/include/lua5.1/include/
+RUN mkdir /usr/include/lua5.1/include && \
+    cp /usr/include/lua5.1/*.h /usr/include/lua5.1/include/
 
-RUN mkdir /root/opt
-WORKDIR /root/opt
-
-RUN git clone https://github.com/vim/vim
-WORKDIR /root/opt/vim
-
-RUN  ./configure \
-     --with-features=huge\
-     --enable-multibyte\
-     --enable-rubyinterp=yes\
-     --enable-python3interp=yes\
-     --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu\
-     --enable-perlinterp=yes\
-     --enable-luainterp=yes\
-     --with-luajit\
-     --with-lua-prefix=/usr/include/lua5.1\
-     --enable-gui=gtk2\
-     --enable-cscope\
-     --prefix=/usr/local
-RUN make
-RUN make install
-
-WORKDIR /root
-RUN rm -rf opt
-
+RUN cd root && \
+    mkdir /root/opt && \
+    cd /root/opt && \
+    git clone https://github.com/vim/vim && \
+    cd /root/opt/vim && \
+    ./configure \
+       --with-features=huge \
+       --enable-multibyte \
+       --enable-rubyinterp=yes \
+       --enable-python3interp=yes \
+       --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
+       --enable-perlinterp=yes \
+       --enable-luainterp=yes \
+       --with-luajit \
+       --with-lua-prefix=/usr/include/lua5.1 \
+       --enable-gui=gtk2 \
+       --enable-cscope \
+       --prefix=/usr/local && \ 
+    make &&  make install && make clean && \
+    cd  /root && \
+    rm -rf opt
 
 # == Pathogen.vim ==
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -61,22 +58,21 @@ RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 WORKDIR /root/.vim/bundle
 
 # == YouCompleteMe ==
-RUN git clone https://github.com/ycm-core/YouCompleteMe.git
-WORKDIR /root/.vim/bundle/YouCompleteMe
-RUN git submodule update --init --recursive
-RUN python3 ./install.py --clang-completer
-WORKDIR /root/.vim/bundle
+RUN git clone https://github.com/ycm-core/YouCompleteMe.git && \
+    cd /root/.vim/bundle/YouCompleteMe && \ 
+    git submodule update --init --recursive && \
+    python3 ./install.py --clang-completer && \
+    cd /root/.vim/bundle
 
 # == Other plugins ==
-RUN git clone https://github.com/vim-scripts/indentpython.vim.git
-RUN git clone https://github.com/vim-syntastic/syntastic.git
-RUN git clone https://github.com/kien/ctrlp.vim.git
-RUN git clone https://github.com/scrooloose/nerdtree.git
-RUN git clone https://github.com/tmhedberg/SimpylFold.git
-RUN git clone https://github.com/tpope/vim-surround.git
+RUN git clone https://github.com/vim-scripts/indentpython.vim.git && \
+    git clone https://github.com/vim-syntastic/syntastic.git && \
+    git clone https://github.com/kien/ctrlp.vim.git && \
+    git clone https://github.com/scrooloose/nerdtree.git && \
+    git clone https://github.com/tmhedberg/SimpylFold.git && \
+    git clone https://github.com/tpope/vim-surround.git
 
 
-WORKDIR /root
 COPY vimrc /root/.vimrc
 
 # https://vi.stackexchange.com/questions/5110/quickfix-support-for-python-tracebacks
