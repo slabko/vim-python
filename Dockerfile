@@ -59,7 +59,7 @@ WORKDIR /root/.vim/bundle
 
 # == YouCompleteMe ==
 RUN git clone https://github.com/ycm-core/YouCompleteMe.git && \
-    cd /root/.vim/bundle/YouCompleteMe && \ 
+    cd /root/.vim/bundle/YouCompleteMe && \
     git submodule update --init --recursive && \
     python3 ./install.py --clang-completer && \
     cd /root/.vim/bundle
