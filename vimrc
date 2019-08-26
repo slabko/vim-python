@@ -88,7 +88,7 @@ map <leader>v  :YcmCompleter GetType<CR>
 
 " == CtrlP =============================================================
 let g:ctrlp_custom_ignore = 'node_modules\|\.venv'
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'a'
 " default 'ra'
 " 'c' - the directory of the current file.
 " 'r' - the nearest ancestor that contains one 
