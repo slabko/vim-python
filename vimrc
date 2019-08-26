@@ -19,10 +19,18 @@ au BufNewFile,BufRead *.py set
   \ expandtab
   \ autoindent
   \ fileformat=unix
+  \ foldmethod=indent
 
+" Yaml indentation
+au BufNewFile,BufRead *.{yaml,yml} set 
+  \ tabstop=2
+  \ softtabstop=2
+  \ shiftwidth=2
+  \ expandtab
+  \ autoindent
+  \ foldmethod=indent
 
-" Enable folding
-set foldmethod=indent
+" Do not fold automatically
 set foldlevel=99
 
 
