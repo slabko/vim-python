@@ -70,7 +70,9 @@ RUN git clone https://github.com/vim-scripts/indentpython.vim.git && \
     git clone https://github.com/kien/ctrlp.vim.git && \
     git clone https://github.com/scrooloose/nerdtree.git && \
     git clone https://github.com/tmhedberg/SimpylFold.git && \
-    git clone https://github.com/tpope/vim-surround.git
+    git clone https://github.com/tpope/vim-surround.git && \
+    git clone https://github.com/tpope/vim-fugitive.git && \
+    git clone https://github.com/wincent/terminus.git
 
 
 COPY vimrc /root/.vimrc
@@ -79,3 +81,4 @@ COPY vimrc /root/.vimrc
 COPY vim/compiler/python.vim /root/.vim/compiler/python.vim
 COPY vim/after/ftplugin/python.vim /root/.vim/after/ftplugin/python.vim
 
+WORKDIR /root
