@@ -86,6 +86,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>b  :YcmCompleter GetDoc<CR>
 map <leader>v  :YcmCompleter GetType<CR>
 
+
 " == CtrlP =============================================================
 let g:ctrlp_custom_ignore = 'node_modules\|\.venv'
 let g:ctrlp_working_path_mode = 'a'
@@ -96,4 +97,8 @@ let g:ctrlp_working_path_mode = 'a'
 " 'a' - like c, but only if the current working directory 
 "       outside of CtrlP is not a direct ancestor of the directory 
 "       of the current file.
+
+" == Terminus ==========================================================
+" Disable Mouse Support
+let g:TerminusMouse=0
 
