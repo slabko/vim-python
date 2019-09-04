@@ -10,6 +10,10 @@ set nu
 
 let mapleader=" "
 
+" Status Line
+set laststatus=2
+set statusline=%f
+
 " PEP 8 indentation
 au BufNewFile,BufRead *.py set 
   \ tabstop=4
