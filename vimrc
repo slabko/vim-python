@@ -3,8 +3,15 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" Remove delay after pressing ESC
+" https://www.reddit.com/r/vim/comments/2391u5/delay_while_using_esc_to_exit_insert_mode/
+set ttimeout
+set ttimeoutlen=100
+set timeoutlen=3000
 
+" Share clipboard and the default register 
 set clipboard=unnamedplus
+
 set encoding=utf-8
 set nu
 
