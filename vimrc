@@ -100,14 +100,7 @@ map <leader>v  :YcmCompleter GetType<CR>
 
 " == CtrlP =============================================================
 let g:ctrlp_custom_ignore = 'node_modules\|\.venv'
-let g:ctrlp_working_path_mode = 'a'
-" default 'ra'
-" 'c' - the directory of the current file.
-" 'r' - the nearest ancestor that contains one 
-"       of these directories or files: .git .hg .svn .bzr
-" 'a' - like c, but only if the current working directory 
-"       outside of CtrlP is not a direct ancestor of the directory 
-"       of the current file.
+let g:ctrlp_working_path_mode = ''
 
 " == Terminus ==========================================================
 " Disable Mouse Support
