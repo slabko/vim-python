@@ -101,8 +101,3 @@ map <leader>v  :YcmCompleter GetType<CR>
 " == CtrlP =============================================================
 let g:ctrlp_custom_ignore = 'node_modules\|\.venv'
 let g:ctrlp_working_path_mode = ''
-
-" == Terminus ==========================================================
-" Disable Mouse Support
-let g:TerminusMouse=0
-
