@@ -3,6 +3,16 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" Change cursor in insert mode
+" https://stackoverflow.com/questions/6488683/how-do-i-change-the-vim-cursor-in-insert-normal-mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
+
 " Remove delay after pressing ESC
 " https://www.reddit.com/r/vim/comments/2391u5/delay_while_using_esc_to_exit_insert_mode/
 set ttimeout
