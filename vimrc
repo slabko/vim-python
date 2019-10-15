@@ -103,9 +103,9 @@ if 'VIRTUAL_ENV' in os.environ:
   exec(context, dict(__file__=activate_this))
 EOF
 
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <leader>b  :YcmCompleter GetDoc<CR>
-map <leader>v  :YcmCompleter GetType<CR>
+map <leader>pd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>pb  :YcmCompleter GetDoc<CR>
+map <leader>pv  :YcmCompleter GetType<CR>
 
 
 " == CtrlP =============================================================
