@@ -5,51 +5,15 @@ ENV LANG=C.UTF-8
 
 RUN apt update && apt install -y \
    build-essential \
-   cmake  \
+   cmake \
    curl \
    git \
-   libatk1.0-dev \
-   liblua5.1-dev \
-   libluajit-5.1 \
-   libncurses5-dev \
-   libperl-dev \
-   libx11-dev \
-   libxpm-dev \
-   libxt-dev \
-   luajit \
-   python3 \
-   python3-dev \
    python3-pip \
-   ruby-dev && \
+   vim && \
    apt clean && \
    rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install virtualenv flake8 mypy
-
-RUN mkdir /usr/include/lua5.1/include && \
-    cp /usr/include/lua5.1/*.h /usr/include/lua5.1/include/
-
-RUN cd root && \
-    mkdir /root/opt && \
-    cd /root/opt && \
-    git clone https://github.com/vim/vim && \
-    cd /root/opt/vim && \
-    ./configure \
-       --with-features=huge \
-       --enable-multibyte \
-       --enable-rubyinterp=yes \
-       --enable-python3interp=yes \
-       --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
-       --enable-perlinterp=yes \
-       --enable-luainterp=yes \
-       --with-luajit \
-       --with-lua-prefix=/usr/include/lua5.1 \
-       --enable-gui=gtk2 \
-       --enable-cscope \
-       --prefix=/usr/local && \ 
-    make &&  make install && make clean && \
-    cd  /root && \
-    rm -rf opt
+RUN pip3 install flake8 mypy virtualenv
 
 # == Pathogen.vim ==
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -71,7 +35,7 @@ RUN git clone https://github.com/vim-scripts/indentpython.vim.git && \
     git clone https://github.com/scrooloose/nerdtree.git && \
     git clone https://github.com/tmhedberg/SimpylFold.git && \
     git clone https://github.com/tpope/vim-surround.git && \
-    git clone https://github.com/tpope/vim-fugitive.git && \
+    git clone https://github.com/tpope/vim-fugitive.git
 
 
 COPY vimrc /root/.vimrc
