@@ -114,4 +114,3 @@ let g:ctrlp_working_path_mode = ''
 
 " == fugitive.vim ======================================================
 map <leader>gs  :Gstatus<CR>
-map <leader>gc  :Gstatus<CR>
