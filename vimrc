@@ -113,4 +113,5 @@ let g:ctrlp_custom_ignore = 'node_modules\|\.venv'
 let g:ctrlp_working_path_mode = ''
 
 " == fugitive.vim ======================================================
-map <leader>gs  :Gstatus<CR>
+map <leader>gs  :Gstatus <bar> resize 15 <CR>
+map <leader>gd  :Gdiff<CR>
