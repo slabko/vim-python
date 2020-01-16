@@ -10,3 +10,4 @@ Notes:
 - Get docs `<leader> pb`.
 - Get type `<leader> pv`.
 - Get GIT status `<leader> gs`.
+- Get diff of a file `<leader> gd`.
