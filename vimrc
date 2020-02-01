@@ -51,6 +51,16 @@ au BufNewFile,BufRead *.{yaml,yml} set
   \ autoindent
   \ foldmethod=indent
 
+" LaTeX indentation
+au BufNewFile,BufRead *.{tex} set 
+  \ tabstop=4
+  \ softtabstop=4
+  \ shiftwidth=4
+  \ expandtab
+  \ autoindent
+  \ foldmethod=indent
+  \ indentexpr=
+
 " Do not fold automatically
 set foldlevel=99
 
