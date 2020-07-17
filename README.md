@@ -11,3 +11,4 @@ Notes:
 - Get type `<leader> pv`.
 - Get GIT status `<leader> gs`.
 - Get diff of a file `<leader> gd`.
+- Open file in NERDTree `<leader> nr`.
