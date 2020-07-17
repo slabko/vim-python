@@ -89,8 +89,7 @@ let g:SimpylFold_docstring_preview=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 map <C-n> :NERDTreeToggle<CR>
-map <C-m> :NERDTreeFind<CR>
-
+map <leader>nr :NERDTreeFind<CR>
 
 " == YouCompleteMe =====================================================
 let g:ycm_autoclose_preview_window_after_completion = 1 
