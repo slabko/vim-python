@@ -93,6 +93,7 @@ map <leader>nr :NERDTreeFind<CR>
 
 " == YouCompleteMe =====================================================
 let g:ycm_autoclose_preview_window_after_completion = 1 
+let g:ycm_auto_hover = 'none'
 let g:ycm_semantic_triggers = {
 \   'python': [
 \      're!import\s',
@@ -113,9 +114,18 @@ if 'VIRTUAL_ENV' in os.environ:
   exec(context, dict(__file__=activate_this))
 EOF
 
+" Show type in YCM's hovers
+augroup MyYCMCustom
+autocmd!
+autocmd FileType python let b:ycm_hover = {
+\ 'command': 'GetType',
+\ 'syntax': &filetype
+\ }
+augroup END
+
 map <leader>pd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>pb  :YcmCompleter GetDoc<CR>
-map <leader>pv  :YcmCompleter GetType<CR>
+map <leader>pv  <plug>(YCMHover)
 
 
 " == CtrlP =============================================================
