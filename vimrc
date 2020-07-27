@@ -125,8 +125,10 @@ augroup END
 
 map <leader>pd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>pb  :YcmCompleter GetDoc<CR>
+map <leader>pr  :YcmCompleter GoToReferences<CR>
 map <leader>pv  <plug>(YCMHover)
 
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " == CtrlP =============================================================
 let g:ctrlp_custom_ignore = 'node_modules\|\.venv'
