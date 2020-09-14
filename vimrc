@@ -19,6 +19,9 @@ set ttimeout
 set ttimeoutlen=100
 set timeoutlen=3000
 
+" Disable autowrap in insert mode
+set formatoptions-=t
+
 " Share clipboard and the default register 
 set clipboard=unnamedplus
 
