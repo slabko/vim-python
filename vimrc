@@ -140,3 +140,18 @@ let g:ctrlp_working_path_mode = ''
 " == fugitive.vim ======================================================
 map <leader>gs  :Gstatus <bar> resize 15 <CR>
 map <leader>gd  :Gdiff<CR>
+
+" == vim-test ==========================================================
+let test#strategy = "dispatch"
+
+let g:dispatch_compilers = {
+\ 'pytest': 'pytest',
+\}
+
+let test#python#pytest#options = ' --tb=short -q --vim-quickfix'
+
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
