@@ -73,6 +73,9 @@ RUN git clone https://github.com/vim-scripts/indentpython.vim.git && \
     git clone https://github.com/tpope/vim-surround.git && \
     git clone https://github.com/tpope/vim-fugitive.git && \
     git clone https://github.com/plasticboy/vim-markdown.git && \
+    git clone https://github.com/tpope/vim-dispatch.git && \
+    git clone https://github.com/vim-test/vim-test.git && \
+    git clone https://github.com/5long/pytest-vim-compiler.git
 
 
 COPY vimrc /root/.vimrc
