@@ -148,7 +148,7 @@ let g:dispatch_compilers = {
 \ 'pytest': 'pytest',
 \}
 
-let test#python#pytest#options = ' --tb=short -q --vim-quickfix'
+let test#python#pytest#options = ' --tb=short -q'
 
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
