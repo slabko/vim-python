@@ -134,7 +134,7 @@ map <leader>pv  <plug>(YCMHover)
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " == CtrlP =============================================================
-let g:ctrlp_custom_ignore = 'node_modules\|\.venv'
+let g:ctrlp_custom_ignore = 'node_modules\|\.venv\|__pycache__\|\.pyc'
 let g:ctrlp_working_path_mode = ''
 
 " == fugitive.vim ======================================================
