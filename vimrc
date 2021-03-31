@@ -132,6 +132,7 @@ map <leader>pr  :YcmCompleter GoToReferences<CR>
 map <leader>pv  <plug>(YCMHover)
 
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <F5> :%s/\<<C-r><C-w>\>/
 
 " == CtrlP =============================================================
 let g:ctrlp_custom_ignore = 'node_modules\|\.venv\|__pycache__\|\.pyc'
