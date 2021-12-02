@@ -64,9 +64,28 @@ au BufNewFile,BufRead *.{tex} set
   \ foldmethod=indent
   \ indentexpr=
 
+au BufNewFile,BufRead *.{ts,js} set 
+  \ tabstop=2
+  \ softtabstop=2
+  \ shiftwidth=2
+  \ expandtab
+  \ autoindent
+  \ foldmethod=indent
+
+au BufNewFile,BufRead *.{go} set 
+  \ tabstop=4
+  \ softtabstop=4
+  \ shiftwidth=4
+  \ expandtab
+  \ autoindent
+  \ foldmethod=indent
+
 " Do not fold automatically
 set foldlevel=99
 
+
+" Ignore some files and folders
+set wildignore+=node_modules/**,.git/**,.venv/**,__pycache__/**,*.pyc
 
 " == Syntastic =========================================================
 set statusline+=%#warningmsg#
@@ -156,3 +175,32 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
+
+" == slime =============================================================
+let g:slime_target = 'tmux'
+let g:slime_python_ipython = 1
+
+" always send text to the top-right pane in the current tmux tab without asking
+let g:slime_default_config = {
+            \ 'socket_name': get(split($TMUX, ','), 0),
+            \ 'target_pane': '{top-right}' }
+let g:slime_dont_ask_default = 1
+
+nnoremap <Leader>js :SlimeSend1 ipython --matplotlib<CR>
+nnoremap <Leader>jq :SlimeSend1 exit<CR>
+nnoremap <Leader>jQ :IPythonCellRestart<CR>
+nnoremap <Leader>jr :IPythonCellExecuteCellJump<CR>
+nnoremap <Leader>jR :IPythonCellRun<CR>
+nnoremap <Leader>jl :IPythonCellClear<CR>
+
+nnoremap <Leader>jx :IPythonCellClose<CR>
+
+nnoremap <Leader>jk :IPythonCellPrevCell<CR>
+nnoremap <Leader>jj :IPythonCellNextCell<CR>
+
+" map <Leader>h to send the current line or current selection to IPython
+nmap <Leader>jh <Plug>SlimeLineSend
+xmap <Leader>jh <Plug>SlimeRegionSend
+
+" map <Leader>p to run the previous command
+nnoremap <Leader>jp :IPythonCellPrevCommand<CR>
