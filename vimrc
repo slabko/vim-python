@@ -148,7 +148,8 @@ augroup END
 map <leader>pd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>pb  :YcmCompleter GetDoc<CR>
 map <leader>pr  :YcmCompleter GoToReferences<CR>
-map <leader>pv  <plug>(YCMHover)
+" map <leader>pv  <plug>(YCMHover)
+map <leader>pv  :YcmCompleter GetType<CR>
 
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <F5> :%s/\<<C-r><C-w>\>/
@@ -177,16 +178,20 @@ nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
 " == slime =============================================================
-let g:slime_target = 'tmux'
+let g:slime_target = "neovim"
 let g:slime_python_ipython = 1
-
-" always send text to the top-right pane in the current tmux tab without asking
-let g:slime_default_config = {
-            \ 'socket_name': get(split($TMUX, ','), 0),
-            \ 'target_pane': '{top-right}' }
+let g:slime_default_config = {'jobid': 4}
 let g:slime_dont_ask_default = 1
 
-nnoremap <Leader>js :SlimeSend1 ipython --matplotlib<CR>
+" let g:slime_vimterminal_cmd = "/bin/bash"
+
+
+" let g:slime_default_config = {
+"             \ 'socket_name': get(split($TMUX, ','), 0),
+"             \ 'target_pane': '{top-right}' }
+" let g:slime_dont_ask_default = 1
+
+nnoremap <Leader>js :vsplit term://bash<CR> <C-w>L :SlimeSend1 ipython --matplotlib<CR> <C-w>h
 nnoremap <Leader>jq :SlimeSend1 exit<CR>
 nnoremap <Leader>jQ :IPythonCellRestart<CR>
 nnoremap <Leader>jr :IPythonCellExecuteCellJump<CR>
